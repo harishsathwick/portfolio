@@ -827,25 +827,30 @@ const PROJECTS = [
     title: 'Real Estate Price Prediction', cats: ['django', 'ml'],
     desc: 'End-to-end web app predicting property prices with a Django backend serving a trained ML model.',
     tags: ['Django', 'Python', 'Linear Regression', 'Random Forest'],
-    icon: 'home', grad: 'linear-gradient(135deg, #8B7CF6, #35D8C9)'
+    icon: 'home', grad: 'linear-gradient(135deg, #8B7CF6, #35D8C9)',
+    github: 'https://github.com/your-username/real-estate-price-prediction'
   },
   {
     title: 'Real-Time Weather Forecasting', cats: ['django', 'api'],
     desc: 'A Django app pulling live conditions and forecasts through the OpenWeather API.',
     tags: ['Django', 'Python', 'OpenWeather API'],
-    icon: 'weather', grad: 'linear-gradient(135deg, #35D8C9, #4F8CF6)'
+    icon: 'weather', grad: 'linear-gradient(135deg, #35D8C9, #4F8CF6)',
+    github: 'https://github.com/harishsathwick/weather.git',
+    demo: 'https://harishsathwick.github.io/weather/'
   },
   {
     title: 'E-Commerce Data Analysis', cats: ['data'],
     desc: 'Cleaned and visualized e-commerce data to surface customer and product performance trends.',
     tags: ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn'],
-    icon: 'chart', grad: 'linear-gradient(135deg, #F6738B, #8B7CF6)'
+    icon: 'chart', grad: 'linear-gradient(135deg, #F6738B, #8B7CF6)',
+    github: 'https://github.com/harishsathwick/Exploratory-Data-Analysis-EDA-E-Commerce-Domain.git'
   },
   {
     title: 'School Management System', cats: ['django'],
     desc: 'A Django + MySQL system for managing student records, staff and academic data.',
     tags: ['Django', 'Python', 'MySQL'],
-    icon: 'book', grad: 'linear-gradient(135deg, #35D8C9, #8B7CF6)'
+    icon: 'book', grad: 'linear-gradient(135deg, #35D8C9, #8B7CF6)',
+    github: 'https://github.com/harishsathwick/school-management-system.git'
   }
 ];
 
@@ -926,8 +931,9 @@ function renderProjects(filter) {
         <p>${p.desc}</p>
         <div class="project-tags">${p.tags.map(t => `<span>${t}</span>`).join('')}</div>
         <div class="project-links">
-          <a href="#" target="_blank" rel="noopener">${ICON.github} Code</a>
-        </div>
+  <a href="${p.github || '#'}" target="_blank" rel="noopener">${ICON.github} Code</a>
+  ${p.demo ? `<a href="${p.demo}" target="_blank" rel="noopener">${ICON.external} Live Demo</a>` : ''}
+</div>
       </div>
     </div>`);
     grid.appendChild(card);
